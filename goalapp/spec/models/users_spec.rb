@@ -19,6 +19,11 @@ RSpec.describe User, type: :model do
                 expect(User.find_by_credentials(phil.username, phil.password)).to eq(phil)
             end
         end
-        
+
+        context 'if user does not exist in database' do
+            it 'should return nil' do
+                expect(User.find_by_credentials('tim','password')).to be(nil)
+            end
+        end
     end
 end
