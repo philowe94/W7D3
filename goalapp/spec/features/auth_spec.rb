@@ -8,10 +8,12 @@ feature 'the signup process' do
   end
 
   feature 'signing up a user' do
-    visit new_user_url
-    fill_in 'username', with: "testuser"
-    fill_in 'password', with: "banana"
-    click_on 'Create User'
+    before(:each) do
+      visit new_user_url
+      fill_in 'username', with: "testuser"
+      fill_in 'password', with: "banana"
+      click_on 'Create User'
+    end
 
     scenario 'shows username on the homepage after signup' do
       expect(page).to have_content("testuser")

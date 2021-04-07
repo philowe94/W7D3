@@ -1,1 +1,4 @@
 <h1>USERS INDEX</h1>
+<% if current_user %>
+    <h3>Welcome, <%= current_user.username %></h3>
+<% end %>
